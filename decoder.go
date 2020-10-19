@@ -8,6 +8,7 @@ import (
 	"io"
 	"runtime"
 	"sync"
+	"sync/atomic"
 
 	"github.com/mattes/gosmparse/OSMPBF"
 )
@@ -23,6 +24,8 @@ type Decoder struct {
 
 	denseInfoFn denseInfoFn
 	infoFn      infoFn
+
+	processedBytes uint64
 }
 
 type denseInfoFn func(i *OSMPBF.DenseInfo, ds *denseState, index int) *Info
@@ -50,6 +53,11 @@ func NewDecoderWithInfo(r io.Reader) *Decoder {
 		denseInfoFn: denseInfo,
 		infoFn:      info,
 	}
+}
+
+// ProcessedBytes returns and resets processed bytes
+func (d *Decoder) ProcessedBytes() uint64 {
+	return atomic.SwapUint64(&d.processedBytes, 0)
 }
 
 // Parse starts the parsing process that will stream data into the given OSMReader.
@@ -194,7 +202,11 @@ func (d *Decoder) blobData(blob *OSMPBF.Blob) (*OSMPBF.PrimitiveBlock, error) {
 	default:
 		return nil, fmt.Errorf("found block with unknown data")
 	}
-	var primitiveBlock = &OSMPBF.PrimitiveBlock{}
+
+	primitiveBlock := &OSMPBF.PrimitiveBlock{}
 	err := primitiveBlock.Unmarshal(buf)
+
+	atomic.AddUint64(&d.processedBytes, uint64(len(buf)))
+
 	return primitiveBlock, err
 }
