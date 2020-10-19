@@ -3,7 +3,7 @@ package gosmparse
 import (
 	"time"
 
-	"github.com/thomersch/gosmparse/OSMPBF"
+	"github.com/mattes/gosmparse/OSMPBF"
 )
 
 // Element contains common attributes of an OSM element (node/way/relation).

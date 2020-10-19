@@ -9,7 +9,7 @@ import (
 	"runtime"
 	"sync"
 
-	"github.com/thomersch/gosmparse/OSMPBF"
+	"github.com/mattes/gosmparse/OSMPBF"
 )
 
 // A Decoder reads and decodes OSM data from an input stream.

@@ -1,4 +1,4 @@
-module github.com/thomersch/gosmparse
+module github.com/mattes/gosmparse
 
 require (
 	github.com/aybabtme/iocontrol v0.0.0-20150809002002-ad15bcfc95a0
@@ -10,3 +10,5 @@ require (
 	github.com/facebookgo/subset v0.0.0-20150612182917-8dac2c3c4870 // indirect
 	github.com/gogo/protobuf v1.1.1
 )
+
+go 1.13

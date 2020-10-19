@@ -1,8 +1,8 @@
 # OpenStreetMap PBF Parser in Go
 
-[![GoDoc](https://godoc.org/github.com/thomersch/gosmparse?status.svg)](https://godoc.org/github.com/thomersch/gosmparse) [![Build Status](https://travis-ci.org/thomersch/gosmparse.svg?branch=master)](https://travis-ci.org/thomersch/gosmparse)
+[![GoDoc](https://godoc.org/github.com/mattes/gosmparse?status.svg)](https://godoc.org/github.com/mattes/gosmparse) [![Build Status](https://travis-ci.org/thomersch/gosmparse.svg?branch=master)](https://travis-ci.org/thomersch/gosmparse)
 
-gosmparse uses a callback driven API, which is stable ([Documentation](https://godoc.org/github.com/thomersch/gosmparse)).
+gosmparse uses a callback driven API, which is stable ([Documentation](https://godoc.org/github.com/mattes/gosmparse)).
 
 It has been designed with performance and maximum usage convenience in mind; on an Intel Core i7-6820HQ with NVMe flash it is able to process ~75 MB/s, so a planet file can be processed in under 10 minutes. If you find possible speed-ups or other improvements, let me know.
 
@@ -20,7 +20,7 @@ It has been designed with performance and maximum usage convenience in mind; on 
 ## Install
 
 ```
-go get -u github.com/thomersch/gosmparse
+go get -u github.com/mattes/gosmparse
 ```
 
 ## Example Usage

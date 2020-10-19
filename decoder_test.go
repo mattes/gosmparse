@@ -10,7 +10,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/thomersch/gosmparse/OSMPBF"
+	"github.com/mattes/gosmparse/OSMPBF"
 
 	"github.com/aybabtme/iocontrol"
 	"github.com/dustin/go-humanize"
